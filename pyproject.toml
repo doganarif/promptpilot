@@ -1,0 +1,34 @@
+[project]
+name = "promptpilot-cli"
+version = "0.0.1"
+description = "CLI for prompt versioning and A/B testing across AI providers"
+authors = [
+    { name = "Arif Dogan", email = "me@arif.sh" }
+]
+license = { text = "MIT" }
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "python-dotenv (>=1.1.0,<2.0.0)",
+    "click (>=8.1.8,<9.0.0)",
+    "gitpython (>=3.1.44,<4.0.0)",
+    "openai (>=1.75.0,<2.0.0)",
+    "transformers (>=4.51.3,<5.0.0)",
+    "pytest (>=8.3.5,<9.0.0)",
+    "pyyaml (>=6.0.2,<7.0.0)",
+    "pytest-cov (>=6.1.1,<7.0.0)",
+    "torch (>=2.6.0,<3.0.0)",
+    "anthropic (>=0.49.0,<0.50.0)"
+]
+
+# Specify package location using an array of tables
+[[tool.poetry.packages]]
+include = "promptpilot"
+from = "src"
+
+[tool.poetry.scripts]
+promptpilot = "promptpilot.cli:cli"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
